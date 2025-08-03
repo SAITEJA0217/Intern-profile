@@ -1,0 +1,36 @@
+.dashboard {
+  background: white;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+.dashboard h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.dashboard .info p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.rewards {
+  margin-top: 30px;
+}
+
+.rewards h2 {
+  color: #555;
+}
+
+.rewards ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.rewards li {
+  font-size: 16px;
+  padding: 5px 0;
+}
