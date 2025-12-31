@@ -1,0 +1,355 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   BASE LAYER
+   ========================================================= */
+@layer base {
+  html.light {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  html.sepia {
+    color-scheme: light;
+    background-color: #fffbeb;
+    --color-primary: #b45309;
+  }
+
+  body {
+    font-family: 'Playfair Display', serif;
+    background-color: #fbf7f2;
+  }
+}
+
+/* =========================================================
+   COMPONENTS LAYER — DIARY DESIGN SYSTEM
+   ========================================================= */
+@layer components {
+  /* ---------- Background ---------- */
+  .diary-bg {
+    background: linear-gradient(180deg, #f7f3ee, #efe9e1);
+  }
+
+  /* ---------- Page (Paper) ---------- */
+  .diary-page {
+    @apply w-full relative rounded-xl;
+    max-width: 760px;
+    padding: 60px 56px;
+    background-color: #fbf7f2;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+
+    /* paper lines */
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.04) 1px,
+      transparent 1px
+    );
+    background-size: 100% 32px;
+  }
+
+  /* ---------- Header ---------- */
+  .diary-header {
+    @apply flex justify-between items-center;
+    margin-bottom: 32px;
+  }
+
+  .diary-date {
+    font-size: 0.95rem;
+    color: #6f6b66;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- Mood Selector ---------- */
+  .diary-moods {
+    @apply flex gap-2;
+  }
+
+  .diary-mood {
+    font-size: 1.4rem;
+    opacity: 0.35;
+    transition: all 0.2s ease;
+  }
+
+  .diary-mood:hover {
+    opacity: 0.8;
+  }
+
+  .diary-mood.active {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+
+  /* ---------- Editor ---------- */
+  .diary-editor {
+    @apply w-full resize-none outline-none bg-transparent;
+    min-height: 65vh;
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    color: #2e2a25;
+    caret-color: #8b5e3c;
+  }
+
+  /* ---------- Footer ---------- */
+  .diary-footer {
+    margin-top: 50px;
+    text-align: right;
+    font-size: 0.85rem;
+    color: #8b857c;
+    font-style: italic;
+  }
+
+  /* =======================================================
+     READ PAGE
+     ======================================================= */
+  .diary-date-full {
+    margin: 20px 0 40px;
+    text-align: center;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    color: #6f6b66;
+  }
+
+  .diary-content {
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    line-height: 2.1rem;
+    color: #2e2a25;
+    white-space: pre-wrap;
+  }
+
+  .diary-images {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 14px;
+  }
+
+  .diary-image {
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .diary-tags {
+    margin-top: 32px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: #8b857c;
+  }
+
+  /* =======================================================
+     DIARY SHELF
+     ======================================================= */
+  .diary-shelf-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+    color: #2e2a25;
+  }
+
+  .diary-empty {
+    text-align: center;
+    font-style: italic;
+    color: #8b857c;
+  }
+
+  .diary-entry-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .diary-entry-item {
+    @apply flex items-center gap-4 cursor-pointer;
+    padding: 18px 8px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.12);
+    transition: background 0.2s ease;
+  }
+
+  .diary-entry-item:hover {
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  .diary-entry-date {
+    font-size: 0.8rem;
+    color: #8b857c;
+    min-width: 90px;
+  }
+
+  .diary-entry-text {
+    flex: 1;
+    font-family: 'Caveat', cursive;
+    font-size: 1.15rem;
+    color: #2e2a25;
+  }
+
+  .diary-entry-mood {
+    font-size: 1.3rem;
+  }
+
+  /* =======================================================
+     AUTH (LOGIN / SIGNUP)
+     ======================================================= */
+  .diary-auth-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .diary-auth-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: #2e2a25;
+  }
+
+  .diary-auth-sub {
+    margin-top: 8px;
+    font-style: italic;
+    color: #6f6b66;
+  }
+
+  .diary-auth-form {
+    @apply flex flex-col gap-5;
+  }
+
+  .diary-input {
+    @apply w-full bg-transparent outline-none;
+    border-bottom: 1px dashed #bfb8ad;
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem;
+    padding: 10px 6px;
+  }
+
+  .diary-action {
+    margin-top: 20px;
+    font-family: 'Playfair Display', serif;
+    transition: all 0.2s ease;
+  }
+
+  .diary-action.primary {
+    background: #2e2a25;
+    color: #fbf7f2;
+    border-radius: 40px;
+    padding: 14px;
+  }
+
+  .diary-action.primary:hover {
+    transform: translateY(-1px);
+  }
+
+  .diary-auth-footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6f6b66;
+  }
+
+  .diary-auth-footer a {
+    border-bottom: 1px solid #6f6b66;
+  }
+
+  .diary-message {
+    margin-top: 24px;
+    text-align: center;
+    font-style: italic;
+    color: #8b857c;
+  }
+
+  /* =======================================================
+     LANDING PAGE
+     ======================================================= */
+  .diary-landing-header {
+    @apply flex justify-between items-center;
+    padding: 28px 40px;
+  }
+
+  .diary-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #2e2a25;
+  }
+
+  .diary-landing-actions {
+    @apply flex gap-5;
+  }
+
+  .diary-link {
+    font-size: 0.9rem;
+    color: #6f6b66;
+    border-bottom: 1px solid transparent;
+  }
+
+  .diary-link:hover {
+    border-bottom: 1px solid #6f6b66;
+  }
+
+  .diary-link.primary {
+    color: #2e2a25;
+    font-weight: 500;
+  }
+
+  .diary-landing-main {
+    @apply flex items-center justify-center;
+    padding: 40px;
+  }
+
+  .diary-landing-content {
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .diary-landing-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    line-height: 1.2;
+    color: #2e2a25;
+  }
+
+  .diary-landing-sub {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #6f6b66;
+  }
+
+  .diary-landing-footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: #8b857c;
+  }
+}
+html.light {
+  --bg: #fafafa;
+  --paper: #ffffff;
+  --text: #111;
+}
+
+html.dark {
+  --bg: #0f0f0f;
+  --paper: #181818;
+  --text: #eaeaea;
+}
+
+html.sepia {
+  --bg: #f4ecd8;
+  --paper: #fbf3e6;
+  --text: #5b4636;
+}
+
+.diary-bg {
+  background: var(--bg);
+}
+
+.diary-page {
+  background: var(--paper);
+  color: var(--text);
+}

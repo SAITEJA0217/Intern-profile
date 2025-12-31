@@ -1,0 +1,19 @@
+/* src/components/InternCard.css */
+.intern-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.2s;
+}
+.intern-card:hover {
+  transform: scale(1.03);
+}
+.rewards {
+  margin-top: 10px;
+}
+.rewards ul {
+  padding-left: 20px;
+}
